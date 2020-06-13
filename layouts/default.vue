@@ -13,9 +13,29 @@
 
     <!-- Toolbar -->
     <v-toolbar clipped-left fixed app class="flex-center">
-      <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer" />
+      <!-- Menu button -->
+      <!-- <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer" /> -->
 
-      <v-toolbar-title v-text="title" />
+      <div class="middle-background blue-middle-background">&nbsp;</div>
+
+      <div class="toolbar-content">
+        <div class="flex-center logo-container">
+          <img src="@/assets/img/logo.svg" alt="Logo" />
+        </div>
+
+        <div class="flex-center nav-items-container">
+          <span class="toolbar-title">DeCassi Foundation</span>
+
+          <div class="flex-center toolbar-items">
+            <v-btn
+              dark
+              flat
+              v-for="(button, index) of navButtons"
+              :key="`nav-${index}`"
+            >{{button.title}}</v-btn>
+          </div>
+        </div>
+      </div>
     </v-toolbar>
 
     <!-- Website content -->
@@ -48,7 +68,23 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: "Vuetify.js"
+      title: "Vuetify.js",
+
+      // New
+      navButtons: [
+        {
+          title: "Home"
+        },
+        {
+          title: "Services"
+        },
+        {
+          title: "About us"
+        },
+        {
+          title: "Contact us"
+        }
+      ]
     };
   }
 };
@@ -96,9 +132,65 @@ export default {
   color: rgba(255, 255, 255, 0.9);
 }
 
+body {
+  font-family: "Open Sans";
+  background: #fcfcfc;
+
+  color: #051443;
+}
+
+.light-blue-text {
+  color: #33b4e3;
+}
+
+.dark-blue-text {
+  color: #112e84;
+}
+
+/* Common settings */
+.paragraph {
+  width: 245px;
+  text-align: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 170px;
+  margin: 20px;
+  font-weight: 500;
+}
+
+.small-paragraph {
+  width: 130px;
+  text-align: center;
+  justify-content: flex-start;
+  align-items: baseline;
+  min-height: 130px;
+  margin: 10px;
+  font-weight: 500;
+}
+
+.section-title {
+  height: 60px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.section-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.section-card {
+  box-shadow: -1px 0px 2px 6px rgba(0, 0, 0, 0.02);
+}
+
 /* Unset any settings */
 .container {
   max-width: unset;
+}
+
+.v-toolbar {
+  background-color: #fcfcfc;
+  height: 40px;
 }
 
 .v-toolbar__content,
@@ -110,10 +202,62 @@ export default {
 
 .v-content {
   align-items: flex-start;
+  padding: 40px 0px 0px !important;
 }
 
 .v-toolbar__content {
-  background: rgba(0, 0, 0, 0.05);
+  /* background: rgba(0, 0, 0, 0.05); */
+  height: 40px !important;
+}
+
+.middle-background {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+}
+
+.blue-middle-background {
+  background-color: #33b4e3;
+  right: 0;
+}
+
+.toolbar-content {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+
+  /* background: rgba(0, 0, 0, 0.03); */
+  z-index: 1;
+}
+
+.logo-container {
+  height: 100%;
+  width: 64px;
+
+  /* background: rgba(0, 0, 0, 0.05); */
+
+  box-sizing: border-box;
+  padding: 3px;
+}
+
+.logo-container img {
+  height: 100%;
+}
+
+.nav-items-container {
+  height: 100%;
+  width: calc(100% - 40px);
+
+  color: white;
+  background: #33b4e3;
+  justify-content: space-between;
+
+  padding: 5px;
+}
+
+.toolbar-items .v-btn {
+  text-transform: capitalize;
 }
 
 .body {

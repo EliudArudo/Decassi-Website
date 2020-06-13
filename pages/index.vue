@@ -1,14 +1,14 @@
 <template>
   <div class="full-size">
-    <div class="full-width landing">&nbsp;</div>
+    <Landing />
 
-    <div class="full-width vision">&nbsp;</div>
+    <Vision />
 
-    <div class="full-width values">&nbsp;</div>
+    <Values />
 
-    <div class="full-width services">&nbsp;</div>
+    <Services />
 
-    <div class="full-width racism">&nbsp;</div>
+    <Racism />
 
     <div class="full-width approach">&nbsp;</div>
 
@@ -17,38 +17,24 @@
 </template>
 
 <script>
+import Landing from "@/components/Landing.vue";
+import Vision from "@/components/Vision.vue";
+import Values from "@/components/Values.vue";
+import Services from "@/components/Services.vue";
+import Racism from "@/components/Racism.vue";
+
 export default {
-  components: {}
+  components: {
+    Landing,
+    Vision,
+    Values,
+    Services,
+    Racism
+  }
 };
 </script>
 
 <style>
-.landing {
-  height: 70vh;
-  max-height: 700px;
-  background: rgba(0, 0, 0, 0.07);
-}
-
-.vision {
-  height: 250px;
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.values {
-  height: 200px;
-  background: rgba(0, 0, 0, 0.07);
-}
-
-.services {
-  height: 300px;
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.racism {
-  height: 350px;
-  background: rgba(0, 0, 0, 0.07);
-}
-
 .approach {
   height: 250px;
   background: rgba(0, 0, 0, 0.04);
