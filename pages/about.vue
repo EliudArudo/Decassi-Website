@@ -1,25 +1,22 @@
 <template>
   <div class="full-size">
-    <div class="full-width staff">&nbsp;</div>
+    <Staff />
 
-    <div class="full-width strategies">&nbsp;</div>
+    <Strategies />
   </div>
 </template>
 
 <script>
-export default {};
+import Staff from "@/components/Staff.vue";
+import Strategies from "@/components/Strategies.vue";
+
+export default {
+  components: {
+    Staff,
+    Strategies
+  }
+};
 </script>
 
 <style>
-.staff {
-  height: 300px;
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.strategies {
-  height: 300px;
-  background: rgba(0, 0, 0, 0.07);
-
-  margin-bottom: 30px;
-}
 </style>

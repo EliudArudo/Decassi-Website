@@ -1,5 +1,5 @@
 <template>
-  <div class="full-width section-card services">
+  <div class="full-width section-card services" id="services">
     <div class="flex-center dark-blue-text section-title">
       <span>SERVICES WE OFFER</span>
     </div>

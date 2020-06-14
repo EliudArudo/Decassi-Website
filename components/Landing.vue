@@ -1,5 +1,5 @@
 <template>
-  <div class="full-width flex-center landing">
+  <div class="full-width flex-center landing" id="landing">
     <div class="flex-center top">
       <div class="flex-center logo-title">
         <img src="@/assets/img/logo.svg" alt="Logo" />
@@ -83,10 +83,6 @@ export default {
 
 .title-wrapper span {
   height: 45px;
-}
-
-.title-fix {
-  display: inline-flex;
 }
 
 .landing-text {

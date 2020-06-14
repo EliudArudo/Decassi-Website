@@ -32,6 +32,7 @@
               flat
               v-for="(button, index) of navButtons"
               :key="`nav-${index}`"
+              @click="processNavItem(button)"
             >{{button.title}}</v-btn>
           </div>
         </div>
@@ -46,9 +47,62 @@
     </v-content>
 
     <!-- Footer -->
-    <v-footer class="flex-center">
-      <div class="full-size footer-body">
-        <span>&copy; 2017</span>
+    <v-footer class="flex-center" id="footer">
+      <div class="full-size flex-center footer-body">
+        <div class="logo-info">
+          <div class="flex-center top">
+            <img src="@/assets/img/logo.svg" alt="Logo" />
+
+            <div class="dark-blue-text logo-words">
+              <span class="title-fix">
+                De
+                <span class="light-blue-text">Cassi</span>
+              </span>
+              <span>Foundation</span>
+            </div>
+          </div>
+
+          <div class="flex-center primary--text bottom">
+            <span>Dream</span>
+            <span>|</span>
+            <span>Believe</span>
+            <span>|</span>
+            <span>Achieve</span>
+          </div>
+        </div>
+
+        <div class="flex-center nav-links">
+          <v-btn
+            color="primary"
+            flat
+            :ripple="false"
+            v-for="(button, index) of navButtons"
+            :key="`nav-${index}`"
+            @click="processNavItem(button)"
+          >{{button.title}}</v-btn>
+        </div>
+
+        <div class="flex-center light-blue-text location">
+          <span class="flex-center flex-column location-details">
+            <!-- Decassi Foundation -->
+            <span class="dark-blue-text company-name">
+              <span class="title-fix">
+                De
+                <span class="light-blue-text">Cassi</span>
+              </span>
+              <span>Foundation</span>
+            </span>
+
+            <!-- Another -->
+            <span>114 New Edition Court</span>
+            <span>Cary, NC 27511</span>
+            <span>USA</span>
+          </span>
+
+          <span>decassi@email.com</span>
+
+          <span class="copyright-message">Copyright 2020</span>
+        </div>
       </div>
     </v-footer>
   </v-app>
@@ -70,22 +124,63 @@ export default {
       rightDrawer: false,
       title: "Vuetify.js",
 
+      options: {
+        duration: 2000,
+        offset: 0,
+        easing: "easeInOutCubic"
+      },
+
       // New
       navButtons: [
         {
-          title: "Home"
+          title: "Home",
+          path: "/"
         },
         {
-          title: "Services"
+          title: "About us",
+          path: "/about"
         },
         {
-          title: "About us"
-        },
-        {
-          title: "Contact us"
+          title: "Contact us",
+          componentID: "footer"
         }
       ]
     };
+  },
+  watch: {
+    $route: {
+      handler: function(to, from) {
+        const serviceRoute = {
+          title: "Services",
+          componentID: "services"
+        };
+
+        if (to.name === "about")
+          this.navButtons = this.navButtons.filter(
+            button => button.title !== "Services"
+          );
+        else this.navButtons.splice(1, 0, serviceRoute);
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    processNavItem: function(button) {
+      if (button.hasOwnProperty("path")) this.$router.push(button.path);
+      else if (button.hasOwnProperty("componentID")) {
+        const target = document.getElementById(button.componentID);
+
+        this.$vuetify.goTo(target, this.options);
+      }
+
+      if (this.$route.path === "/" && button.title === "Home")
+        this.slideToLandingPage();
+    },
+    slideToLandingPage() {
+      const target = document.getElementById("landing");
+
+      this.$vuetify.goTo(target, this.options);
+    }
   }
 };
 </script>
@@ -183,6 +278,10 @@ body {
   box-shadow: -1px 0px 2px 6px rgba(0, 0, 0, 0.02);
 }
 
+.title-fix {
+  display: inline-flex;
+}
+
 /* Unset any settings */
 .container {
   max-width: unset;
@@ -266,11 +365,79 @@ body {
 }
 
 .footer-body {
-  background: rgba(0, 0, 0, 0.05);
+  align-items: flex-start;
+  padding: 30px;
+  justify-content: space-between;
 }
 
 .v-footer {
   height: 230px !important;
   min-height: unset;
+  background: #fcfcfc;
+
+  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo-info {
+  width: 170px;
+}
+
+.logo-info .top {
+  height: 60px;
+}
+
+.logo-info .top img {
+  width: 60px;
+}
+
+.logo-info .top .logo-words {
+  width: calc(100% - 60px);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.logo-info .top .logo-words {
+  line-height: 1.2;
+}
+
+.logo-info .bottom {
+  justify-content: space-between;
+}
+
+.nav-links {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 10px;
+}
+
+.nav-links .v-btn {
+  padding: 0;
+  height: 25px;
+  text-transform: none;
+  font-weight: 200;
+  margin: 0;
+}
+
+.nav-links .v-btn .v-btn__content {
+  justify-content: flex-start;
+}
+
+.location {
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 140px;
+}
+
+.location-details {
+  align-items: flex-end;
+}
+
+.company-name {
+  font-weight: 500;
+}
+
+.copyright-message {
+  font-size: 10px;
 }
 </style>

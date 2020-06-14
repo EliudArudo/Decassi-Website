@@ -10,9 +10,9 @@
 
     <Racism />
 
-    <div class="full-width approach">&nbsp;</div>
+    <Approach />
 
-    <div class="full-width volunteer">&nbsp;</div>
+    <Volunteer />
   </div>
 </template>
 
@@ -22,6 +22,8 @@ import Vision from "@/components/Vision.vue";
 import Values from "@/components/Values.vue";
 import Services from "@/components/Services.vue";
 import Racism from "@/components/Racism.vue";
+import Approach from "@/components/Approach.vue";
+import Volunteer from "@/components/Volunteer.vue";
 
 export default {
   components: {
@@ -29,21 +31,13 @@ export default {
     Vision,
     Values,
     Services,
-    Racism
+    Racism,
+    Approach,
+    Volunteer
   }
 };
 </script>
 
 <style>
-.approach {
-  height: 250px;
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.volunteer {
-  height: 300px;
-  background: rgba(0, 0, 0, 0.07);
-
-  margin-bottom: 30px;
-}
 </style>
+
