@@ -6,7 +6,7 @@
         <v-icon class="section-icon" dark>person_outline</v-icon>
       </div>
 
-      <h4 class="white-text">EFFECTS OF RACISM ON MINORITY</h4>
+      <h4 class="white-text">{{title}}</h4>
     </div>
 
     <div class="bottom">
@@ -27,6 +27,7 @@
 export default {
   data() {
     return {
+      title: "EFFECTS OF RACISM ON MINORITY",
       effects: [
         "Disadvantaging the nondominant group through power used by the dominant group to provide members of the group with advantages",
         "Structural racism still exists after the Jim Crow era, which significantly disadvantages them while limiting their access to health care",

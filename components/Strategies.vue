@@ -1,7 +1,7 @@
 <template>
   <div class="full-width strategies">
     <div class="flex-center dark-blue-text section-title">
-      <span>OUR RESOURCE MOBILIZATION AND PARTNERSHIP STRATEGIES</span>
+      <span>{{title}}</span>
     </div>
 
     <div class="flex-center bottom">
@@ -29,6 +29,7 @@ export default {
   components: {},
   data() {
     return {
+      title: "OUR RESOURCE MOBILIZATION AND PARTNERSHIP STRATEGIES",
       strategies: [
         {
           icon: "recent_actors",
@@ -86,6 +87,7 @@ export default {
 }
 
 .bottom {
+  margin-top: 20px;
   align-items: flex-start;
   flex-wrap: wrap;
 }

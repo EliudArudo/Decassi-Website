@@ -22,17 +22,13 @@
 
     <div class="bottom">
       <div class="flex-center landing-infos">
-        <div class="flex-center paragraph">
-          <h4>WHO WE ARE</h4>
-          <p>We are a mental and behavioural health services provider offering comprehensive services to the vulnerable population who typically do not qualify for government subsidized services and occupational and education programs</p>
-        </div>
-
-        <div class="flex-center paragraph">
-          <h4>WHAT WE BELIEVE</h4>
-          <p>
-            Limited mental and behavioural health services are the most constant phenomena among the most vulnerable, marginalized and excluded minority groups.
-            They must be included in this is critical health service component
-          </p>
+        <div
+          class="flex-center paragraph"
+          v-for="(paragraph, index) of paragraphs"
+          :key="`landing-${index}`"
+        >
+          <h4>{{paragraph.title}}</h4>
+          <p>{{paragraph.content}}</p>
         </div>
       </div>
     </div>
@@ -41,14 +37,29 @@
 
 <script>
 export default {
-  components: {}
+  components: {},
+  data() {
+    return {
+      paragraphs: [
+        {
+          title: "WHO WE ARE",
+          content:
+            "We are a mental and behavioural health services provider offering comprehensive services to the vulnerable population who typically do not qualify for government subsidized services and occupational and education programs"
+        },
+        {
+          title: "WHAT WE BELIEVE",
+          content:
+            "Limited mental and behavioural health services are the most constant phenomena among the most vulnerable, marginalized and excluded minority groups. They must be included in this is critical health service component"
+        }
+      ]
+    };
+  }
 };
 </script>  
 
 <style scoped>
 .landing {
-  height: 70vh;
-  max-height: 700px;
+  min-height: 70vh;
 
   flex-direction: column;
 
@@ -71,6 +82,7 @@ export default {
 
 .logo-title {
   font-size: 40px;
+  flex-wrap: wrap;
 }
 
 .title-wrapper {
@@ -98,5 +110,18 @@ export default {
 .landing-infos {
   color: white;
   margin-top: 50px;
+
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 960px) {
+  .landing .top {
+    flex-wrap: wrap;
+  }
+
+  .landing .landing-text {
+    width: 80%;
+    text-align: center;
+  }
 }
 </style>

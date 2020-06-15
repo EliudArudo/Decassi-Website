@@ -1,7 +1,7 @@
 <template>
   <div class="full-width flex-center values">
     <v-icon class="section-icon" color="primary">gavel</v-icon>
-    <h4 class="dark-blue-text">OUR CORE VALUES</h4>
+    <h4 class="dark-blue-text">{{title}}</h4>
 
     <div class="flex-center paragraph-list-wrapper">
       <div
@@ -24,6 +24,7 @@
 export default {
   data() {
     return {
+      title: "OUR CORE VALUES",
       values: [
         "Respect for the uniqueness and cultural backgrounds of each client",
         "Empathy in the provision of quality and accessible services",
@@ -74,5 +75,9 @@ export default {
   z-index: 2;
 
   font-weight: 500;
+}
+
+.paragraph-list-wrapper {
+  flex-wrap: wrap;
 }
 </style>

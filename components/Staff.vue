@@ -1,7 +1,7 @@
 <template>
   <div class="full-width staff">
     <div class="flex-center dark-blue-text section-title">
-      <span>MEET OUR STAFF</span>
+      <span>{{title}}</span>
     </div>
 
     <div class="flex-center staff-wrapper">
@@ -28,6 +28,7 @@
 export default {
   data() {
     return {
+      title: "MEET OUR STAFF",
       staff: [
         {
           picture: "avatar-1.png",

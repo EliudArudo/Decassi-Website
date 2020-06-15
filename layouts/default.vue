@@ -1,11 +1,15 @@
 <template>
   <v-app>
     <!-- Side menu -->
-    <v-navigation-drawer class="hidden-md-and-up" clipped v-model="drawer" fixed app>
+    <v-navigation-drawer class="flex-center hidden-md-and-up" clipped v-model="drawer" fixed app>
       <v-list>
-        <v-list-tile v-for="(item, i) in items" :to="item.to" :key="i" router exact>
+        <v-list-tile
+          v-for="(item, index) in navButtons"
+          @click="processNavItem(item)"
+          :key="`menu-nav-item-${index}`"
+        >
           <v-list-tile-content>
-            <v-list-tile-title v-text="item.title" />
+            <v-list-tile-title class="primary--text" v-text="item.title" />
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -13,9 +17,6 @@
 
     <!-- Toolbar -->
     <v-toolbar clipped-left fixed app class="flex-center">
-      <!-- Menu button -->
-      <!-- <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer" /> -->
-
       <div class="middle-background blue-middle-background">&nbsp;</div>
 
       <div class="toolbar-content">
@@ -26,7 +27,11 @@
         <div class="flex-center nav-items-container">
           <span class="toolbar-title">DeCassi Foundation</span>
 
-          <div class="flex-center toolbar-items">
+          <div class="hidden-md-and-up">
+            <v-toolbar-side-icon dark @click="drawer = !drawer" />
+          </div>
+
+          <div class="flex-center hidden-sm-and-down toolbar-items">
             <v-btn
               dark
               flat
@@ -49,7 +54,7 @@
     <!-- Footer -->
     <v-footer class="flex-center" id="footer">
       <div class="full-size flex-center footer-body">
-        <div class="logo-info">
+        <div class="footer-item logo-info">
           <div class="flex-center top">
             <img src="@/assets/img/logo.svg" alt="Logo" />
 
@@ -71,7 +76,7 @@
           </div>
         </div>
 
-        <div class="flex-center nav-links">
+        <div class="footer-item flex-center nav-links">
           <v-btn
             color="primary"
             flat
@@ -82,7 +87,7 @@
           >{{button.title}}</v-btn>
         </div>
 
-        <div class="flex-center light-blue-text location">
+        <div class="footer-item flex-center light-blue-text location">
           <span class="flex-center flex-column location-details">
             <!-- Decassi Foundation -->
             <span class="dark-blue-text company-name">
@@ -166,6 +171,8 @@ export default {
   },
   methods: {
     processNavItem: function(button) {
+      if (this.drawer) this.drawer = false;
+
       if (button.hasOwnProperty("path")) this.$router.push(button.path);
       else if (button.hasOwnProperty("componentID")) {
         const target = document.getElementById(button.componentID);
@@ -244,7 +251,7 @@ body {
 
 /* Common settings */
 .paragraph {
-  width: 245px;
+  max-width: 245px;
   text-align: center;
   justify-content: flex-start;
   flex-direction: column;
@@ -254,7 +261,7 @@ body {
 }
 
 .small-paragraph {
-  width: 130px;
+  max-width: 130px;
   text-align: center;
   justify-content: flex-start;
   align-items: baseline;
@@ -365,13 +372,16 @@ body {
 }
 
 .footer-body {
+  height: 100%;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding: 30px;
   justify-content: space-between;
 }
 
 .v-footer {
-  height: 230px !important;
+  height: unset !important;
+  min-height: 230px !important;
   min-height: unset;
   background: #fcfcfc;
 
@@ -422,6 +432,14 @@ body {
   justify-content: flex-start;
 }
 
+.v-navigation-drawer {
+  width: 110px !important;
+}
+
+.v-navigation-drawer .v-list {
+  width: 100%;
+}
+
 .location {
   align-items: flex-end;
   justify-content: space-between;
@@ -440,4 +458,37 @@ body {
 .copyright-message {
   font-size: 10px;
 }
+
+@media only screen and (max-width: 520px) {
+  .footer-body {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footer-body .footer-item {
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    text-align: center;
+    min-height: 60px;
+  }
+
+  .footer-body .nav-links .v-btn .v-btn__content {
+    justify-content: center;
+  }
+
+  .footer-body .location {
+    align-items: center;
+  }
+
+  .footer-body .location-details {
+    align-items: center;
+  }
+}
+
+/* * {
+  border: 1px solid #f00 !important;
+} */
 </style>

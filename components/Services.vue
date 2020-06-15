@@ -1,7 +1,7 @@
 <template>
   <div class="full-width section-card services" id="services">
     <div class="flex-center dark-blue-text section-title">
-      <span>SERVICES WE OFFER</span>
+      <span>{{title}}</span>
     </div>
 
     <div class="flex-center services-wrapper">
@@ -25,6 +25,7 @@
 export default {
   data() {
     return {
+      title: "SERVICES WE OFFER",
       services: [
         {
           picture: "life-coach.png",
@@ -65,6 +66,7 @@ export default {
 
 .services-wrapper {
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .service {

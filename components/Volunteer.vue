@@ -1,7 +1,7 @@
 <template>
   <div class="full-width section-card volunteer">
     <div class="flex-center dark-blue-text section-title">
-      <span>VOLUNTEER</span>
+      <span>{{title}}</span>
     </div>
 
     <div class="flex-center bottom">
@@ -16,7 +16,12 @@
 
 <script>
 export default {
-  components: {}
+  components: {},
+  data() {
+    return {
+      title: "VOLUNTEER"
+    };
+  }
 };
 </script>
 
