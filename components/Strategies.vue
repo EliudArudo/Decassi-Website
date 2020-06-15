@@ -10,7 +10,7 @@
         v-for="(strategy, index) of strategies"
         :key="`strategy-${index}`"
       >
-        <v-icon class="section-icon" color="primary">{{strategy.icon}}</v-icon>
+        <v-icon class="animated section-icon" color="primary">{{strategy.icon}}</v-icon>
         <h4 class="dark-blue-text strategy-title">{{strategy.title}}</h4>
 
         <p class="flex-center">

@@ -10,7 +10,7 @@
         v-for="(person, index) of staff"
         :key="`person-${index}`"
       >
-        <v-avatar :size="90" color="grey lighten-4">
+        <v-avatar class="animated" :size="90" color="grey lighten-4">
           <img :src="require(`@/assets/img/avatars/${person.picture}`)" alt="avatar" />
         </v-avatar>
 
@@ -79,9 +79,12 @@ export default {
   flex-direction: column;
   margin: 20px;
   padding: 20px;
+
+  transition: all 0.5s ease;
 }
 
 .person:hover {
+  background: white;
   box-shadow: -1px 0px 2px 6px rgba(0, 0, 0, 0.02);
 }
 

@@ -2,8 +2,8 @@
   <div class="full-width flex-center section-card racism">
     <div class="flex-center top">
       <div class="flex-center section-icons">
-        <v-icon class="section-icon" dark>person</v-icon>
-        <v-icon class="section-icon" dark>person_outline</v-icon>
+        <v-icon class="animated section-icon" dark>person</v-icon>
+        <v-icon class="animated section-icon" dark>person_outline</v-icon>
       </div>
 
       <h4 class="white-text">{{title}}</h4>

@@ -1,6 +1,6 @@
 <template>
   <div class="full-width flex-center values">
-    <v-icon class="section-icon" color="primary">gavel</v-icon>
+    <v-icon class="animated section-icon" color="primary">gavel</v-icon>
     <h4 class="dark-blue-text">{{title}}</h4>
 
     <div class="flex-center paragraph-list-wrapper">

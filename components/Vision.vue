@@ -6,7 +6,7 @@
 
     <div class="flex-center bottom">
       <div class="flex-center paragraph" v-for="(item, index) of items" :key="`vision-${index}`">
-        <v-icon class="section-icon" color="primary">{{item.icon}}</v-icon>
+        <v-icon class="animated section-icon" color="primary">{{item.icon}}</v-icon>
         <h4 class="dark-blue-text">{{item.title}}</h4>
         <p>{{item.content}}</p>
       </div>

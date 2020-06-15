@@ -2,7 +2,7 @@
   <div class="full-width flex-center landing" id="landing">
     <div class="flex-center top">
       <div class="flex-center logo-title">
-        <img src="@/assets/img/logo.svg" alt="Logo" />
+        <img class="animated" src="@/assets/img/logo.svg" alt="Logo" />
 
         <div class="flex-center dark-blue-text title-wrapper">
           <span class="title-fix">

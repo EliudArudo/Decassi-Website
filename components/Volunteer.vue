@@ -8,7 +8,7 @@
       <div class="flex-center paragraph">
         <p>“I am only one, but I am one. I cannot do everything, but I can do something. And I will not let what I cannot do interfere with what I can do.” – Edward Everett Hale</p>
         <p>Please send us an email with your details as you join our cause</p>
-        <v-btn color="primary">SEND US MAIL</v-btn>
+        <v-btn @click="sendEmail()" color="primary">EMAIL US</v-btn>
       </div>
     </div>
   </div>
@@ -21,6 +21,13 @@ export default {
     return {
       title: "VOLUNTEER"
     };
+  },
+  methods: {
+    sendEmail: () => {
+      const email = "decassi@email.com";
+
+      document.location = "mailto:" + email;
+    }
   }
 };
 </script>
@@ -31,7 +38,7 @@ export default {
   min-height: 250px;
   /* background: rgba(0, 0, 0, 0.04); */
 
-  background: #fcfcfc;
+  background: white;
 
   border-radius: 7px;
   margin-bottom: 60px;

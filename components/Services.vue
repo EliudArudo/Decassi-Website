@@ -11,7 +11,7 @@
         :key="`service-${index}`"
       >
         <div
-          class="section-card"
+          class="animated section-card"
           :style="{'background-image': 'url(' + require(`@/assets/img/services/${service.picture}`) + ')'}"
         ></div>
 
@@ -57,7 +57,7 @@ export default {
 <style scoped>
 .services {
   /* height: 300px; */
-  background: #fcfcfc;
+  background: white;
 
   border-radius: 7px;
 

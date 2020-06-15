@@ -194,6 +194,18 @@ export default {
 
 
 <style>
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #fcfcfc;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #33b4e3;
+  border-radius: 20px;
+  border: 3px solid white;
+}
+
 /* Helpers */
 .full-size {
   height: 100% !important;
@@ -239,6 +251,8 @@ body {
   background: #fcfcfc;
 
   color: #051443;
+  cursor: default;
+  user-select: none;
 }
 
 .light-blue-text {
@@ -367,7 +381,7 @@ body {
 }
 
 .body {
-  background: rgba(0, 0, 0, 0.03);
+  /* background: rgba(0, 0, 0, 0.03); */
   padding-top: 0;
 }
 
@@ -491,4 +505,13 @@ body {
 /* * {
   border: 1px solid #f00 !important;
 } */
+
+/* Animations */
+.animated {
+  transition: all 0.4s ease-in-out;
+}
+
+.animated:hover {
+  transform: scale(1.1);
+}
 </style>
