@@ -58,6 +58,7 @@ export default {
 
   background: white url("~@/assets/img/backgrounds/racism.jpg") no-repeat fixed
     center;
+  transform: translate(0, 0, 0);
 }
 
 .racism .top {

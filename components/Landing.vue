@@ -69,6 +69,7 @@ export default {
 
   background: white url("~@/assets/img/backgrounds/landing.jpg") no-repeat fixed
     center;
+  transform: translate(0, 0, 0);
 }
 
 .landing .top {
