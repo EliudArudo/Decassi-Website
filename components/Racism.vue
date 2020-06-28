@@ -57,6 +57,7 @@ export default {
   flex-direction: column;
 
   background: white url("~@/assets/img/backgrounds/racism.jpg") no-repeat center;
+  background-size: cover;
   transform: translate(0, 0, 0);
 }
 
