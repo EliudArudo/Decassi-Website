@@ -56,7 +56,7 @@ export default {
 
   flex-direction: column;
 
-  background: white url("~@/assets/img/backgrounds/racism.png") no-repeat fixed
+  background: white url("~@/assets/img/backgrounds/racism.jpg") no-repeat fixed
     center;
 }
 

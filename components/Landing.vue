@@ -67,7 +67,7 @@ export default {
   box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.02);
   border-radius: 0px 0px 7px 7px;
 
-  background: white url("~@/assets/img/backgrounds/landing.png") no-repeat fixed
+  background: white url("~@/assets/img/backgrounds/landing.jpg") no-repeat fixed
     center;
 }
 
